@@ -107,6 +107,7 @@ async def test_server_messages(tmp_path):
     await e.on_server({"t": "start", "set": "A", "ends_at": 1010.0,
                        "files": [{"name": "q.txt", "b64": base64.b64encode(b"Q").decode()}]})
     assert (e.folder.root / "q.txt").read_bytes() == b"Q" and e.live
+    assert p.opened == [str(e.folder.root), str(e.folder.root / "q.txt")]   # folder, then the paper on top
     assert ui.calls[-1][0] == "start" and ui.calls[-1][1][2] == 1000.0
     p.hosts[8] = "chatgpt.com"
     await e.on_server({"t": "act", "action": "kill", "target": {"pid": 77}, "reason": "NoteGPT — AI assistant", "flag_id": 5})

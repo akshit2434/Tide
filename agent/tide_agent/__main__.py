@@ -14,6 +14,9 @@ class _Api:
     def submit(self):
         return self.app.submit_from_ui()
 
+    def open_folder(self):
+        return self.app.open_folder_from_ui()
+
 
 def main(argv=None) -> None:
     ap = argparse.ArgumentParser(prog="tide-agent", description="Tide student agent")

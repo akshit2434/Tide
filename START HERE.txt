@@ -31,6 +31,9 @@ STUDENT PC
 
   Every time:        double-click  "STUDENT - 2 Start.bat"
                      -> type the join code, your roll number and seat number, press Join
+                     -> when the teacher presses Start, the question paper opens by itself
+                        (it's saved in C:\Exam\<your roll>; the "Question paper" button
+                        in the timer bar at the top opens it again)
                      -> if it says "Teacher not found", type the Teacher IP shown in
                         the teacher's black Tide window into "Teacher address"
 

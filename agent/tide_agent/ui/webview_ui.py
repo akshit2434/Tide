@@ -13,15 +13,15 @@ class WebviewUI:
         sw, sh = (screen.width, screen.height) if screen else (1920, 1080)
         self._persistent = False
         self.main = webview.create_window("Tide", str(WEB / "index.html"), width=440, height=600, resizable=False)
-        self.pill = webview.create_window("Tide timer", str(WEB / "pill.html"), width=460, height=60,
-                                          x=(sw - 460) // 2, y=10, frameless=True, on_top=True,
+        self.pill = webview.create_window("Tide timer", str(WEB / "pill.html"), width=540, height=60,
+                                          x=(sw - 540) // 2, y=10, frameless=True, on_top=True,
                                           hidden=True, easy_drag=True, resizable=False)
         self.overlay = webview.create_window("Tide", str(WEB / "overlay.html"), width=sw, height=sh, x=0, y=0,
                                              frameless=True, on_top=True, hidden=True, resizable=False)
 
     def bind(self, api) -> None:
         self.main.expose(api.join)
-        self.pill.expose(api.submit)
+        self.pill.expose(api.submit, api.open_folder)
 
     def run(self, func) -> None:
         webview.start(func)

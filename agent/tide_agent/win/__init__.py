@@ -1,4 +1,14 @@
+import os
+
 from tide_agent.win import browser, capture, devices, input, net, procs, windows
+
+
+def _open_path(path: str) -> None:
+    """Open a file or folder the way double-clicking it would (PDF viewer, Explorer…)."""
+    try:
+        os.startfile(path)
+    except OSError:
+        pass
 
 
 class WinPlatform:
@@ -14,3 +24,4 @@ class WinPlatform:
     clipboard_text = staticmethod(devices.clipboard_text)
     close_tab = staticmethod(input.close_tab)
     screenshot = staticmethod(capture.screenshot)
+    open_path = staticmethod(_open_path)

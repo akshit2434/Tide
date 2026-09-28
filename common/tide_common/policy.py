@@ -26,6 +26,9 @@ ALWAYS_ALLOWED = frozenset({
     "tide-agent.exe", "explorer.exe", "searchhost.exe", "shellexperiencehost.exe",
     "startmenuexperiencehost.exe", "lockapp.exe", "applicationframehost.exe",
     "textinputhost.exe", "systemsettings.exe", "msedgewebview2.exe",
+    # PDF viewers, so the question paper can always be opened
+    "acrord32.exe", "acrobat.exe", "sumatrapdf.exe", "foxitpdfreader.exe", "foxitreader.exe",
+    "pdfxedit.exe", "winword.exe", "powerpnt.exe",
 })
 
 DENY_PROCESSES: dict[str, str] = {

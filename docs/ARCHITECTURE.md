@@ -140,7 +140,9 @@ bundling Chromium.
 ### 3.3 Start and question release
 - Teacher presses **Start**. Server sends every ready seat its set (in *blocked* mode, only seats
   that passed the offline check): seat number odd → Set A, even → Set B.
-- Files land in `C:\Exam\<roll>\` along with a `README.txt` with instructions.
+- Files are saved to `C:\Exam\<roll>\`, and the agent **opens them for the student**: the exam folder in
+  File Explorer, with the question PDF/documents on top. The timer bar's **Question paper** button reopens
+  the folder at any time. (Common PDF viewers are always allowed, so opening the paper never raises a flag.)
 - **Why this closes cheat #3:** the questions never exist on Classroom or email, and Classroom,
   Gmail and Drive are blocked during the exam. A leaked join code gets you nothing; questions go
   only to paired, checked seats, at Start.

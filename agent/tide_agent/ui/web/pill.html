@@ -6,12 +6,14 @@ body{background:transparent;display:flex;align-items:center;justify-content:cent
 .seat{font-weight:700}.set{color:var(--muted)}.sep{width:1px;height:18px;background:var(--line)}
 .time{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;flex:1}
 .time.low{color:var(--crit)}
+.files{background:var(--brand-2);color:var(--brand);border:0;border-radius:999px;padding:7px 14px;font-weight:600;cursor:pointer}
 .sub{background:var(--brand);color:#fff;border:0;border-radius:999px;padding:7px 14px;font-weight:600;cursor:pointer}
 .note{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:var(--warn-bg);color:#92400E;font-weight:600;border-radius:999px;padding:0 16px;text-align:center}
 </style></head><body>
 <div class="pill pywebview-drag-region">
   <span class="live"></span><span id="seat" class="seat"></span><span id="set" class="set"></span>
   <span class="sep"></span><span id="time" class="time">--:--</span>
+  <button id="files" class="files" title="Open your question paper and exam folder">Question paper</button>
   <button id="sub" class="sub">Submit</button>
 </div>
 <div id="note" class="note"></div>
@@ -30,6 +32,7 @@ window.tide = {
   setEnds(endsMs) { ends = endsMs; render(); },
   notice(text) { const n = document.getElementById("note"); n.textContent = text; n.style.display = "flex"; setTimeout(() => n.style.display = "none", 6000); },
 };
+document.getElementById("files").onclick = () => window.pywebview.api.open_folder();
 document.getElementById("sub").onclick = async () => {
   const b = document.getElementById("sub");
   if (b.dataset.armed !== "1") { b.dataset.armed = "1"; b.textContent = "Sure?"; setTimeout(() => { b.dataset.armed = ""; b.textContent = "Submit"; }, 3000); return; }

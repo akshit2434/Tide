@@ -20,6 +20,7 @@ from .watchers import (ClipboardWatcher, ExtensionWatcher, LanWatcher, NetworkWa
                        UsbWatcher, WindowWatcher)
 
 TICK_S = 0.5
+QUESTION_DOCS = {".pdf", ".docx", ".doc", ".pptx", ".txt", ".md"}
 
 
 class Engine:
@@ -97,6 +98,7 @@ class Engine:
             self.set_name, self.live = m.get("set"), True
             if first:
                 self.ui.start(self.seat_no, self.set_name, self.clock.to_local(m["ends_at"]), str(self.folder.root))
+                await asyncio.to_thread(self.open_questions, [name for name, _ in files])
             else:
                 self.ui.set_ends_at(self.clock.to_local(m["ends_at"]))
         elif t == "time":
@@ -112,6 +114,17 @@ class Engine:
             await self.submit(auto=True)
         elif t == "auth_failed":
             self.ui.error("This seat was joined from another PC. Ask the invigilator.")
+
+    # ---- question paper ------------------------------------------------------------------------
+    def open_questions(self, names: list[str]) -> None:
+        """Show the student their paper: the exam folder in Explorer, then the question documents on top."""
+        self.p.open_path(str(self.folder.root))
+        docs = [n for n in names if Path(n).suffix.lower() in QUESTION_DOCS][:3]
+        for name in docs:
+            self.p.open_path(str(self.folder.root / Path(name).name))
+
+    def open_folder(self) -> None:
+        self.p.open_path(str(self.folder.root))
 
     # ---- loop ----------------------------------------------------------------------------------
     def _slow_polls(self) -> list[Signal]:

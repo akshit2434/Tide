@@ -44,7 +44,7 @@ alerts during the exam. Without it, the room shows only your real student(s).
 |---|---|---|---|
 | 0 | "60 students, one invigilator. Nobody can watch 60 screens. Here's Tide." | Show the console **Lobby** | The join code, an empty room waiting for students |
 | 1 | "A student sits at PC-07 and opens Tide." | On S: type the code, roll, seat 7, **Join** | Pre-flight on S: **Online ✓ (monitored), Copilot ! (flagged), files indexed ✓**. Seat 07 appears on T, **amber** |
-| 2 | "The question paper doesn't exist anywhere until now. Not on Classroom, not in email." | T: **Start** | Timer bar on S; the PDF lands in `C:\Exam\22BCS107\` (Set A, odd seat). T switches to the live room and alert feed |
+| 2 | "The question paper doesn't exist anywhere until now. Not on Classroom, not in email." | T: **Start** | On S the question PDF **opens on screen** by itself (saved in `C:\Exam\22BCS107\`, Set A for an odd seat) and a timer bar appears at the top; its **Question paper** button reopens it. T switches to the live room and alert feed |
 | 3 | "Real tools are fine — and so is the internet." | S: open VS Code, browse a normal site | Nothing flagged. Seat 07's timeline shows "VS Code" in grey |
 | 4 | "Now the classic." | S: open `chatgpt.com` — it **loads** | Tab closes in ~1 s, red screen on S; T: seat 07 **red**, feed says "ChatGPT — closed · Auto-closed", screenshot attached |
 | 5 | "Something no block list knows." | S: open `poe.com` | Feed: "poe.com — AI assistant · **Jev 0.97** · Auto-closed". Point at the Jev badge |

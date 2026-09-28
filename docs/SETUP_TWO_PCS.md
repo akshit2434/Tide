@@ -53,8 +53,9 @@ teacher and student steps on it — it works the same.
    **Teacher address** and press Join again.
 3. Pre-flight ticks through; the seat appears in the teacher's Lobby.
 
-**Teacher PC**: press **Start**. The PDF lands in `C:\Exam\<roll>\` on each student PC, the
-student gets a timer bar, and the teacher sees the live room.
+**Teacher PC**: press **Start**. On each student PC the question PDF **opens by itself** (it's saved
+in `C:\Exam\<roll>\`), and a timer bar appears at the top with a **Question paper** button to reopen
+it and a **Submit** button. The teacher sees the live room.
 
 ### Mock room (for a fuller-looking presentation)
 

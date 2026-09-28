@@ -110,6 +110,10 @@ class FakePlatform:
             self.log.append(f"close_tab {hwnd}")
             self.code_window()
 
+    def open_path(self, path):
+        self.log.append(f"open {path}")
+        print(f"[fake] opened {path}", flush=True)
+
     def screenshot(self):
         try:
             from PIL import Image, ImageDraw

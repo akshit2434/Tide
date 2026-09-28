@@ -16,6 +16,7 @@ class FakePlatform:
         self.clip: str | None = None
         self.closed_tabs: list[int] = []
         self.shot: bytes | None = b"\xff\xd8jpeg"
+        self.opened: list[str] = []
 
     def foreground(self): return self.window
     def browser_host(self, hwnd, process):
@@ -33,3 +34,4 @@ class FakePlatform:
     def clipboard_text(self): return self.clip
     def close_tab(self, hwnd): self.closed_tabs.append(hwnd)
     def screenshot(self): return self.shot
+    def open_path(self, path): self.opened.append(path)

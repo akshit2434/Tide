@@ -105,6 +105,11 @@ class AgentApp:
     def join_from_ui(self, code, roll, seat, server="") -> dict:
         return asyncio.run_coroutine_threadsafe(self.join(code, roll, seat, server), self.loop).result(timeout=20)
 
+    def open_folder_from_ui(self) -> dict:
+        if self.engine is not None:
+            self.engine.open_folder()
+        return {"ok": True}
+
     def submit_from_ui(self) -> dict:
         asyncio.run_coroutine_threadsafe(self.engine.submit(auto=False), self.loop).result(timeout=60)
         return {"ok": True}

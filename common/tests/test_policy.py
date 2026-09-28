@@ -33,3 +33,8 @@ def test_host_match_matches_subdomains_not_suffixes():
 def test_display_app():
     assert display_app("Code.exe") == "VS Code"
     assert display_app("weird.exe") == "weird"
+
+
+def test_pdf_viewers_always_allowed():
+    p = Policy.from_apps([])
+    assert p.is_allowed_process("AcroRd32.exe") and p.is_allowed_process("SumatraPDF.exe")
